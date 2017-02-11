@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	onDelete: (index) => {
+	onRemove: (index) => {
 		dispatch({ type: actionTypes.REMOVE_CITY, payload: index });
 	},
 });

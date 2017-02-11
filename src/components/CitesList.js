@@ -4,11 +4,11 @@ import { List } from 'material-ui';
 import City from './City';
 
 
-const CitesList = ({ cities }) => (
+const CitesList = ({ cities, onRemove }) => (
 	<div>
 		<List>
 			{cities.map((city, index) =>
-				<City key={index} city={city} />,
+				<City key={index} city={city} index={index} onRemove={onRemove} />,
 			)}
 		</List>
 	</div>
@@ -16,6 +16,7 @@ const CitesList = ({ cities }) => (
 
 CitesList.propTypes = {
 	cities: PropTypes.array.isRequired,
+	onRemove: PropTypes.func.isRequired,
 };
 
 export default CitesList;

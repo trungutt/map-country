@@ -1,19 +1,14 @@
 import { connect } from 'react-redux';
-import JSONP from 'jsonp';
-
 
 import actionTypes from '../actions/actionTypes';
 import SearchInput from '../components/SearchInput';
 
-const googleAutoSuggestURL = `
-  //suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=`;
-const performSearch = (inputValue, dispatch) => {
-	const url = googleAutoSuggestURL + inputValue;
 
-	if (inputValue !== '') {
-		dispatch({ type: actionTypes.SET_KEYWORD, payload: inputValue });
+const performSearch = (input, dispatch) => {
+	if (input !== '') {
+		dispatch({ type: actionTypes.SET_KEYWORD, payload: input });
 		let autocompleteService = new google.maps.places.AutocompleteService();
-		autocompleteService.getPlacePredictions({ input: inputValue }, (predictions, status) => {
+		autocompleteService.getPlacePredictions({ input }, (predictions, status) => {
 			const suggests = predictions.map(prediction => prediction.description);
 			dispatch({ type: actionTypes.SUCCESS_SUGGESTS, payload: suggests });
 		});
@@ -23,6 +18,16 @@ const performSearch = (inputValue, dispatch) => {
 const addCity = (city, dispatch) => {
 	dispatch({ type: actionTypes.ADD_CITY, payload: city });
 	dispatch({ type: actionTypes.SET_KEYWORD, payload: '' });
+
+	const geocoder = new google.maps.Geocoder();
+	geocoder.geocode({ address: city }, (results, status) => {
+		const latLng = {
+			lat: results[0].geometry.location.lat(),
+			lng: results[0].geometry.location.lng(),
+		};
+
+		console.log('latLng = ', JSON.stringify(latLng, null, 5));
+	});
 };
 
 const mapStateToProps = state => ({
@@ -31,8 +36,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	onUpdateInput: (inputValue) => {
-		performSearch(inputValue, dispatch);
+	onUpdateInput: (input) => {
+		performSearch(input, dispatch);
 	},
 	onNewRequest: (chosenRequest) => {
 		addCity(chosenRequest, dispatch);

@@ -4,9 +4,9 @@
 	"description": "",
 	"scripts": {
 		"start": "webpack-dev-server",
-		"pretest": "npm run pretest:lint && npm run pretest:typecheck",
-		"pretest:lint": "esw src --color",
-		"pretest:typecheck": "flow",
+		"lint": "esw webpack.config.* src/* --color",
+		"lint:watch": "npm run lint -- --watch",
+		"typecheck": "flow",
 		"test": "mocha --reporter progress --compilers js:babel-core/register src/**/*.spec.js",
 		"test:watch": "npm run test -- --watch --watch-extensions jsx",
 		"check:lib": "npm-check"

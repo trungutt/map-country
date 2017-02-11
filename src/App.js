@@ -2,7 +2,7 @@ import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import SearchInput from './SearchInput';
+import SearchInputContainer from './containers/SearchInputContainer';
 
 
 /* Needed for onTouchTap */
@@ -10,7 +10,9 @@ injectTapEventPlugin();
 
 const App = () => (
 	<MuiThemeProvider>
-		<SearchInput />
+		<div>
+			<SearchInputContainer />
+		</div>
 	</MuiThemeProvider>
 );
 

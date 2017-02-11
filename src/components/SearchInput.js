@@ -10,6 +10,7 @@ const SearchInput = ({ dataSource, onUpdateInput, onNewRequest }) => (
 			onUpdateInput(text);
 		}}
 		onNewRequest={onNewRequest}
+		fullWidth={true}
 	/>
 );
 

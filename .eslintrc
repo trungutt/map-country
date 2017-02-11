@@ -49,6 +49,7 @@
 			"tab"
 		],
 		"react/no-array-index-key": "off",
-		"jsx-a11y/no-static-element-interactions": "off"
+		"jsx-a11y/no-static-element-interactions": "off",
+		"react/jsx-boolean-value": "off",
 	}
 }

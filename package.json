@@ -1,36 +1,47 @@
 {
-  "name": "exercise-nevereatalone",
-  "version": "1.0.0",
-  "description": "",
-  "scripts": {
-    "lint": "eslint webpack.config.* src/*",
-    "lint:watch": "npm run lint -- --watch",
-    "check": "npm-check",
-    "commands": "ntl"
-  },
-  "keywords": [],
-  "author": "trungutt",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-core": "^6.22.1",
-    "babel-eslint": "^7.1.1",
-    "babel-loader": "^6.2.10",
-    "babel-preset-latest": "^6.22.0",
-    "babel-preset-react": "^6.22.0",
-    "eslint": "^3.15.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-react": "^6.9.0",
-    "eslint-watch": "^2.1.14",
-    "react-hot-loader": "^1.3.1",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.3.0",
-    "webpack-hot-middleware": "^2.16.1"
-  },
-  "dependencies": {
-    "npm-check": "^5.4.0",
-    "ntl": "^1.1.3"
-  }
+	"name": "map",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"start": "webpack-dev-server",
+		"pretest": "npm run pretest:lint && npm run pretest:typecheck",
+		"pretest:lint": "esw src --color",
+		"pretest:typecheck": "flow",
+		"test": "mocha --reporter progress --compilers js:babel-core/register src/**/*.spec.js",
+		"test:watch": "npm run test -- --watch --watch-extensions jsx",
+		"check:lib": "npm-check"
+	},
+	"keywords": [],
+	"author": "trungutt",
+	"license": "ISC",
+	"devDependencies": {
+		"babel-core": "^6.22.1",
+		"babel-eslint": "^7.1.1",
+		"babel-loader": "^6.2.10",
+		"babel-plugin-transform-flow-strip-types": "^6.22.0",
+		"babel-plugin-transform-object-rest-spread": "^6.22.0",
+		"babel-preset-latest": "^6.22.0",
+		"babel-preset-react": "^6.22.0",
+		"eslint": "^3.15.0",
+		"eslint-config-airbnb": "^14.1.0",
+		"eslint-plugin-babel": "^4.0.1",
+		"eslint-plugin-flow-vars": "^0.5.0",
+		"eslint-plugin-import": "^2.2.0",
+		"eslint-plugin-jsx-a11y": "^4.0.0",
+		"eslint-plugin-react": "^6.9.0",
+		"eslint-watch": "^2.1.14",
+		"flow-bin": "^0.38.0",
+		"npm-check": "^5.4.0",
+		"webpack": "^2.2.1",
+		"webpack-dev-server": "^2.3.0"
+	},
+	"dependencies": {
+		"chai": "^3.5.0",
+		"mocha": "^3.2.0",
+		"react": "^15.4.2",
+		"react-dom": "^15.4.2",
+		"react-redux": "^5.0.2",
+		"redux": "^3.6.0",
+		"redux-logger": "^2.8.1"
+	}
 }

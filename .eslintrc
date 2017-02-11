@@ -1,5 +1,26 @@
 {
-	"extends": "airbnb",
+	"extends": [
+		"airbnb",
+		"plugin:react/recommended"
+	],
+	"env": {
+		"es6": true,
+		"browser": true,
+		"node": true,
+		"mocha": true
+	},
+	"plugins": [
+		"flow-vars",
+		"react"
+	],
+	"parser": "babel-eslint",
+	"parserOptions": {
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"experimentalObjectRestSpread": true,
+			"jsx": true
+		}
+	},
 	"rules": {
 		"no-tabs": "off",
 		"indent": [

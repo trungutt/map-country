@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 
+import initialState from '../store/initialState';
 import actionTypes from '../actions/actionTypes';
 
-const initialCities = [];
-const cities = (state = initialCities, action) => {
+
+const cities = (state = initialState.cities, action) => {
 	switch (action.type) {
 		case actionTypes.ADD_CITY:
 			return [
@@ -19,13 +20,7 @@ const cities = (state = initialCities, action) => {
 	}
 };
 
-const initialSearch = {
-	keyword: '',
-	suggests: [],
-	fetching: false,
-	error: false,
-};
-const search = (state = initialSearch, action) => {
+const search = (state = initialState.search, action) => {
 	switch (action.type) {
 		case actionTypes.SUCCESS_SUGGESTS:
 			return { ...state, suggests: action.payload };

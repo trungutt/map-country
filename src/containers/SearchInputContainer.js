@@ -26,7 +26,7 @@ const addCity = (city, dispatch) => {
 };
 
 const mapStateToProps = state => ({
-	dataSource: state.search.suggests || [],
+	dataSource: state.search.suggests,
 });
 
 const mapDispatchToProps = dispatch => ({

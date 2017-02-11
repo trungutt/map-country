@@ -4,11 +4,16 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 
-import mapReducers from './reducers/reducers';
+import reducers from './reducers/reducers';
+import initialState from './store/initialState';
 import App from './App';
 
 
-const store = createStore(mapReducers, applyMiddleware(createLogger({ collapsed: true })));
+const store = createStore(
+	reducers,
+	initialState,
+	applyMiddleware(createLogger({ collapsed: true })),
+);
 
 render(
 	<Provider store={store}>

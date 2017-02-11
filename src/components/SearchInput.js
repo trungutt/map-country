@@ -2,9 +2,11 @@ import React, { PropTypes } from 'react';
 import { AutoComplete } from 'material-ui';
 
 
-const SearchInput = ({ dataSource, onUpdateInput, onNewRequest }) => (
+const SearchInput = ({ searchText, dataSource, onUpdateInput, onNewRequest }) => (
 	<AutoComplete
-		floatingLabelText="Search country"
+		floatingLabelText="Search city"
+		searchText={searchText}
+		filter={AutoComplete.caseInsensitiveFilter}
 		dataSource={dataSource}
 		onUpdateInput={(text) => {
 			onUpdateInput(text);
@@ -15,6 +17,7 @@ const SearchInput = ({ dataSource, onUpdateInput, onNewRequest }) => (
 );
 
 SearchInput.propTypes = {
+	searchText: PropTypes.string.isRequired,
 	onUpdateInput: PropTypes.func.isRequired,
 	onNewRequest: PropTypes.func.isRequired,
 	dataSource: PropTypes.array.isRequired,

@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import JSONP from 'jsonp';
 
+
 import actionTypes from '../actions/actionTypes';
 import SearchInput from '../components/SearchInput';
-
 
 const googleAutoSuggestURL = `
   //suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=`;
@@ -11,11 +11,11 @@ const performSearch = (inputValue, dispatch) => {
 	const url = googleAutoSuggestURL + inputValue;
 
 	if (inputValue !== '') {
-		JSONP(url, (error, data) => {
-			if (error) return error;
-			const searchResults = data[1];
-			const retrievedSearchTerms = searchResults.map(result => result[0]);
-			dispatch({ type: actionTypes.SUCCESS_SUGGESTS, payload: retrievedSearchTerms });
+		dispatch({ type: actionTypes.SET_KEYWORD, payload: inputValue });
+		let autocompleteService = new google.maps.places.AutocompleteService();
+		autocompleteService.getPlacePredictions({ input: inputValue }, (predictions, status) => {
+			const suggests = predictions.map(prediction => prediction.description);
+			dispatch({ type: actionTypes.SUCCESS_SUGGESTS, payload: suggests });
 		});
 	}
 };
@@ -26,6 +26,7 @@ const addCity = (city, dispatch) => {
 };
 
 const mapStateToProps = state => ({
+	searchText: state.search.keyword,
 	dataSource: state.search.suggests,
 });
 

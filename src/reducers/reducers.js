@@ -24,6 +24,8 @@ const search = (state = initialState.search, action) => {
 	switch (action.type) {
 		case actionTypes.SUCCESS_SUGGESTS:
 			return { ...state, suggests: action.payload };
+		case actionTypes.SET_KEYWORD:
+			return { ...state, keyword: action.payload };
 		default:
 			return state;
 	}

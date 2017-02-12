@@ -23,7 +23,7 @@ describe('reducers on cities CRUD', () => {
 	const cities = reducers.cities;
 
 	it('add a city', () => {
-		const todos = cities(
+		const expectedCities = cities(
 			initialState.cities,
 			{
 				type: actionTypes.ADD_CITY,
@@ -34,7 +34,7 @@ describe('reducers on cities CRUD', () => {
 				},
 			},
 		);
-		expect(todos).to.deep.equal([
+		expect(expectedCities).to.deep.equal([
 			{
 				name: 'Paris',
 				latitude: 48.856614,
@@ -54,8 +54,8 @@ describe('reducers on cities CRUD', () => {
 	});
 
 	it('remove a city', () => {
-		const todos = cities(initialState.cities, { type: actionTypes.REMOVE_CITY, payload: 1 });
-		expect(todos).to.deep.equal([
+		const expected = cities(initialState.cities, { type: actionTypes.REMOVE_CITY, payload: 1 });
+		expect(expected).to.deep.equal([
 			{
 				name: 'Paris',
 				latitude: 48.856614,

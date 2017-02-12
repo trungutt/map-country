@@ -10,9 +10,10 @@ const cities = (state = initialState.cities, action) => {
 				action.payload,
 			];
 		case actionTypes.REMOVE_CITY:
-			return state
-				.splice(0, action.payload)
-				.concat(state.slice(action.payload + 1));
+			return [
+				...state.slice(0, action.payload),
+				...state.slice(action.payload + 1),
+			];
 		default:
 			return state;
 	}

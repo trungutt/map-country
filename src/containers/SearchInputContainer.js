@@ -26,8 +26,8 @@ const addCity = (city, dispatch) => {
 			console.log('error geocode');
 		}
 		const latLng = {
-			lat: results[0].geometry.location.lat(),
-			lng: results[0].geometry.location.lng(),
+			latitude: results[0].geometry.location.lat(),
+			longitude: results[0].geometry.location.lng(),
 		};
 
 		dispatch({

@@ -1,7 +1,9 @@
+/* @flow */
+
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 
-import reducers from './reducers';
+import cities from './citiesReducer';
 import actionTypes from '../actions/actionTypes';
 
 describe('reducers on cities CRUD', () => {
@@ -19,8 +21,6 @@ describe('reducers on cities CRUD', () => {
 			},
 		],
 	};
-
-	const cities = reducers.cities;
 
 	it('add a city', () => {
 		const expectedCities = cities(

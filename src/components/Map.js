@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { Map, TileLayer } from 'react-leaflet';
-import { marker, featureGroup } from 'leaflet';
 
 // eslint-disable-next-line import/no-unresolved,import/extensions,import/no-extraneous-dependencies
 import 'leaflet_css';

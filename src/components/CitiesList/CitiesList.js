@@ -11,7 +11,7 @@ type CitiesListArgs = {
 	onRemove: Function,
 };
 const CitiesList = ({ cities, onRemove }: CitiesListArgs) => (
-	<div>
+	<div style={{ width: '100%' }}>
 		<List>
 			{cities.map((city, index) =>
 				<City key={index} city={city} index={index} onRemove={onRemove} />,

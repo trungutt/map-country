@@ -8,6 +8,7 @@ import SearchInputContainer from './containers/SearchInputContainer';
 import CitiesListContainer from './containers/CitiesListContainer';
 import MapContainer from './containers/MapContainer';
 
+import './App.css';
 
 /* Needed for onTouchTap */
 injectTapEventPlugin();
@@ -15,9 +16,15 @@ injectTapEventPlugin();
 const App = () => (
 	<MuiThemeProvider>
 		<div>
-			<SearchInputContainer />
-			<CitiesListContainer />
-			<MapContainer />
+			<div className="parent">
+				<div className="left">
+					<SearchInputContainer />
+					<CitiesListContainer />
+				</div>
+				<div className="right">
+					<MapContainer />
+				</div>
+			</div>
 		</div>
 	</MuiThemeProvider>
 );

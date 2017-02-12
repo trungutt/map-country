@@ -1,0 +1,14 @@
+.parent {
+    display: flex;
+}
+
+.right {
+	flex-grow: 3;
+}
+
+.left {
+   display: flex;
+   flex-grow: 1;
+   flex-direction: column;
+   align-items: flex-start;
+}

@@ -15,10 +15,10 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
 	onUpdateInput: (input: string) => {
 		dispatch({ type: actionTypes.SET_KEYWORD, payload: input });
-		dispatch({ type: 'FETCH_CITIES', payload: utils.getPlacePredictions(input) });
+		dispatch({ type: actionTypes.FETCH_CITIES, payload: utils.getPlacePredictions(input) });
 	},
 	onNewRequest: (city: string) => {
-		dispatch({ type: 'ADD_CITY', payload: utils.getGeocodeByAddress(city) });
+		dispatch({ type: actionTypes.ADD_CITY, payload: utils.getGeocodeByAddress(city) });
 		dispatch({ type: actionTypes.SET_KEYWORD, payload: '' });
 	},
 });

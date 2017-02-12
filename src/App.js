@@ -4,6 +4,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import SearchInputContainer from './containers/SearchInputContainer';
 import CitiesListContainer from './containers/CitiesListContainer';
+import CustomMap from './components/CustomMap';
+
 
 /* Needed for onTouchTap */
 injectTapEventPlugin();
@@ -13,6 +15,7 @@ const App = () => (
 		<div>
 			<SearchInputContainer />
 			<CitiesListContainer />
+			<CustomMap />
 		</div>
 	</MuiThemeProvider>
 );

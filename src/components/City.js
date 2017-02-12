@@ -10,7 +10,7 @@ const City = ({ city, index, onRemove }) => (
 				<IconButton
 					touch={true}
 					tooltipPosition="bottom-left"
-					onClick={e => {
+					onClick={(e) => {
 						e.preventDefault();
 						onRemove(index);
 					}}

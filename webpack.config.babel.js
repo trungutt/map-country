@@ -32,9 +32,21 @@ const scriptLoader = {
 	exclude: /node_modules/,
 	test: /\.jsx$|\.js$/,
 };
+const cssLoaders = {
+	loaders: ['style-loader', 'css-loader'],
+	include: __dirname,
+	test: /\.css$|\.scss$/,
+};
+const fontLoader = {
+	loaders: ['url-loader'],
+	test: /\.png$/,
+};
 const plugins = [new webpack.HotModuleReplacementPlugin()];
 const resolve = {
-	extensions: ['.js', '.jsx'],
+	extensions: ['.js', '.jsx', '.css'],
+	alias: {
+		leaflet_css: path.join(__dirname, './node_modules/leaflet/dist/leaflet.css'),
+	},
 };
 
 export default {
@@ -42,7 +54,13 @@ export default {
 	entry,
 	output,
 	devServer,
-	module: { loaders: [scriptLoader] },
+	module: {
+		loaders: [
+			scriptLoader,
+			cssLoaders,
+			fontLoader,
+		],
+	},
 	plugins,
 	resolve,
 };

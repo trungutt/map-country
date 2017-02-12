@@ -1,9 +1,16 @@
-import React, { PropTypes } from 'react';
+/* @flow */
+
+import React from 'react';
 import { ListItem, Divider, IconButton } from 'material-ui';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 
 
-const City = ({ city, index, onRemove }) => (
+type CityArgs = {
+	city: string,
+	index: number,
+	onRemove: Function,
+};
+const City = ({ city, index, onRemove }: CityArgs) => (
 	<div>
 		<ListItem
 			rightIconButton={
@@ -24,11 +31,5 @@ const City = ({ city, index, onRemove }) => (
 
 	</div>
 );
-
-City.propTypes = {
-	city: PropTypes.string.isRequired,
-	index: PropTypes.number.isRequired,
-	onRemove: PropTypes.func.isRequired,
-};
 
 export default City;

@@ -1,10 +1,16 @@
-import React, { PropTypes } from 'react';
+/* @flow */
+
+import React from 'react';
 import { List } from 'material-ui';
 
 import City from './City';
 
 
-const CitesList = ({ cities, onRemove }) => (
+type CitesListArgs = {
+	cities: Array<string>,
+	onRemove: Function,
+};
+const CitesList = ({ cities, onRemove }: CitesListArgs) => (
 	<div>
 		<List>
 			{cities.map((city, index) =>
@@ -13,10 +19,5 @@ const CitesList = ({ cities, onRemove }) => (
 		</List>
 	</div>
 );
-
-CitesList.propTypes = {
-	cities: PropTypes.array.isRequired,
-	onRemove: PropTypes.func.isRequired,
-};
 
 export default CitesList;

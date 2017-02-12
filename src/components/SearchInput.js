@@ -1,8 +1,16 @@
-import React, { PropTypes } from 'react';
+/* @flow */
+
+import React from 'react';
 import { AutoComplete } from 'material-ui';
 
 
-const SearchInput = ({ searchText, dataSource, onUpdateInput, onNewRequest }) => (
+type SearchInputArgs = {
+	searchText: string,
+	dataSource: Array<string>,
+	onUpdateInput: Function,
+	onNewRequest: Function,
+};
+const SearchInput = ({ searchText, dataSource, onUpdateInput, onNewRequest }: SearchInputArgs) => (
 	<AutoComplete
 		floatingLabelText="Search city"
 		searchText={searchText}
@@ -15,12 +23,5 @@ const SearchInput = ({ searchText, dataSource, onUpdateInput, onNewRequest }) =>
 		fullWidth={true}
 	/>
 );
-
-SearchInput.propTypes = {
-	searchText: PropTypes.string.isRequired,
-	onUpdateInput: PropTypes.func.isRequired,
-	onNewRequest: PropTypes.func.isRequired,
-	dataSource: PropTypes.array.isRequired,
-};
 
 export default SearchInput;

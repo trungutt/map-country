@@ -1,5 +1,6 @@
 [ignore]
-.*react-leaflet.*
+.*react-leaflet/src/.*
+.*leaflet_css.*
 
 [include]
 

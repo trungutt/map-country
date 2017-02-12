@@ -4,7 +4,7 @@ import initialState from '../store';
 import actionTypes from '../actions/actionTypes';
 
 
-type City = {
+export type City = {
 	name: string,
 	latitude: number,
 	longitude: number,

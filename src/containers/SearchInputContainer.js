@@ -1,3 +1,5 @@
+/* @flow */
+
 import { connect } from 'react-redux';
 
 import actionTypes from '../actions/actionTypes';
@@ -11,11 +13,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	onUpdateInput: (input) => {
+	onUpdateInput: (input: string) => {
 		dispatch({ type: actionTypes.SET_KEYWORD, payload: input });
 		dispatch({ type: 'FETCH_CITIES', payload: utils.getPlacePredictions(input) });
 	},
-	onNewRequest: (city) => {
+	onNewRequest: (city: string) => {
 		dispatch({ type: 'ADD_CITY', payload: utils.getGeocodeByAddress(city) });
 		dispatch({ type: actionTypes.SET_KEYWORD, payload: '' });
 	},

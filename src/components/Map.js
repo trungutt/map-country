@@ -1,13 +1,23 @@
-import React, { PropTypes } from 'react';
+/* @flow */
+
+import React from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 
-// eslint-disable-next-line import/no-unresolved,import/extensions,import/no-extraneous-dependencies
+// eslint-disable
+// $FlowFixMe
 import 'leaflet_css';
 
+
+// eslint-enable
 import CustomMarker from '../components/Marker';
+import type { Cities } from '../reducers/citiesReducer';
 
 
-const CustomMap = ({ cities, bounds }) => (
+type CustomMapArgs = {
+	cities: Cities,
+	bounds: any
+};
+const CustomMap = ({ cities, bounds }: CustomMapArgs) => (
 	<Map style={{ height: '100vh' }} bounds={bounds.getBounds()} zoom={1}>
 		<TileLayer
 			url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
@@ -16,10 +26,5 @@ const CustomMap = ({ cities, bounds }) => (
 		{cities.map((city, index) => <CustomMarker key={index} city={city} />)}
 	</Map>
 );
-
-CustomMap.propTypes = {
-	cities: PropTypes.array.isRequired,
-	bounds: PropTypes.object.isRequired,
-};
 
 export default CustomMap;

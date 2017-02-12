@@ -3,14 +3,14 @@
 import React from 'react';
 import { List } from 'material-ui';
 
-import City from './City';
+import City from '../City/City';
 
 
-type CitesListArgs = {
+type CitiesListArgs = {
 	cities: Array<string>,
 	onRemove: Function,
 };
-const CitesList = ({ cities, onRemove }: CitesListArgs) => (
+const CitiesList = ({ cities, onRemove }: CitiesListArgs) => (
 	<div>
 		<List>
 			{cities.map((city, index) =>
@@ -20,4 +20,4 @@ const CitesList = ({ cities, onRemove }: CitesListArgs) => (
 	</div>
 );
 
-export default CitesList;
+export default CitiesList;

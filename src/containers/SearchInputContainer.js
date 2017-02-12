@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 
 import actionTypes from '../actions/actionTypes';
-import SearchInput from '../components/SearchInput';
+import SearchInput from '../components/SearchInput/SearchInput';
 import utils from '../utils';
 
 

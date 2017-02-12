@@ -4,12 +4,12 @@
 	"description": "",
 	"scripts": {
 		"start": "webpack-dev-server",
-		"lint": "esw webpack.config.* src/* --color",
+		"lint": "esw webpack.config.* src/**/*.js --color",
 		"lint:watch": "npm run lint -- --watch",
 		"typecheck": "flow",
 		"typecheck:watch": "flow-watch",
-		"test": "mocha --reporter progress --compilers js:babel-core/register src/**/*.spec.js",
-		"test:watch": "npm run test -- --watch --watch-extensions jsx",
+		"test": "mocha --reporter progress test/testSetup.js src/**/*.spec.js",
+		"test:watch": "npm run test -- --watch",
 		"check:lib": "npm-check"
 	},
 	"keywords": [],
@@ -41,11 +41,15 @@
 		"webpack-dev-server": "^2.3.0"
 	},
 	"dependencies": {
+		"babel-register": "^6.22.0",
 		"chai": "^3.5.0",
+		"enzyme": "^2.7.1",
+		"jsdom": "^9.11.0",
 		"leaflet": "^1.0.3",
 		"material-ui": "^0.16.7",
 		"mocha": "^3.2.0",
 		"react": "^15.4.2",
+		"react-addons-test-utils": "^15.4.2",
 		"react-dom": "^15.4.2",
 		"react-leaflet": "^1.1.0",
 		"react-redux": "^5.0.2",

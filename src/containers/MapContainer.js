@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 import { marker, featureGroup } from 'leaflet';
 
-import Map from '../components/Map';
+import Map from '../components/Map/Map';
 import type { Cities } from '../reducers/citiesReducer';
 
 

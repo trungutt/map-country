@@ -3,7 +3,7 @@
 import React from 'react';
 import { Marker, Popup } from 'react-leaflet';
 
-import type { City } from '../reducers/citiesReducer';
+import type { City } from '../../reducers/citiesReducer';
 
 
 type CustomMarkerArgs = {

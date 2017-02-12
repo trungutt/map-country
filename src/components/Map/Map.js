@@ -3,14 +3,13 @@
 import React from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 
-// eslint-disable
 // $FlowFixMe
-import 'leaflet_css';
+import 'leaflet_css'; // eslint-disable-line
 
 
 // eslint-enable
-import CustomMarker from '../components/Marker';
-import type { Cities } from '../reducers/citiesReducer';
+import CustomMarker from '../Marker/Marker';
+import type { Cities } from '../../reducers/citiesReducer';
 
 
 type CustomMapArgs = {

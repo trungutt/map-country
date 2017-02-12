@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 
 import actionTypes from '../actions/actionTypes';
-import CitesList from '../components/CitesList';
+import CitiesList from '../components/CitiesList/CitiesList';
 
 
 const mapStateToProps = state => ({
@@ -16,5 +16,5 @@ const mapDispatchToProps = dispatch => ({
 	},
 });
 
-const CitiesListContainer = connect(mapStateToProps, mapDispatchToProps)(CitesList);
+const CitiesListContainer = connect(mapStateToProps, mapDispatchToProps)(CitiesList);
 export default CitiesListContainer;

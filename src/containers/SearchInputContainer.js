@@ -7,28 +7,40 @@ import SearchInput from '../components/SearchInput';
 const performSearch = (input, dispatch) => {
 	if (input !== '') {
 		dispatch({ type: actionTypes.SET_KEYWORD, payload: input });
-		let autocompleteService = new google.maps.places.AutocompleteService();
+		const autocompleteService = new google.maps.places.AutocompleteService();
 		autocompleteService.getPlacePredictions({ input }, (predictions, status) => {
-			const suggests = predictions.map(prediction => prediction.description);
-			dispatch({ type: actionTypes.SUCCESS_SUGGESTS, payload: suggests });
+			if (status !== google.maps.places.PlacesServiceStatus.OK) {
+				console.log('error search places');
+			} else {
+				const suggests = predictions.map(prediction => prediction.description);
+				dispatch({ type: actionTypes.SUCCESS_SUGGESTS, payload: suggests });
+			}
 		});
 	}
 };
 
 const addCity = (city, dispatch) => {
-	dispatch({ type: actionTypes.ADD_CITY, payload: city });
-	dispatch({ type: actionTypes.SET_KEYWORD, payload: '' });
-
 	const geocoder = new google.maps.Geocoder();
 	geocoder.geocode({ address: city }, (results, status) => {
+		if (status !== google.maps.GeocoderStatus.OK) {
+			console.log('error geocode');
+		}
 		const latLng = {
 			lat: results[0].geometry.location.lat(),
 			lng: results[0].geometry.location.lng(),
 		};
 
-		console.log('latLng = ', JSON.stringify(latLng, null, 5));
+		dispatch({
+			type: actionTypes.ADD_CITY,
+			payload: {
+				name: city,
+				...latLng,
+			},
+		});
+		dispatch({ type: actionTypes.SET_KEYWORD, payload: '' });
 	});
 };
+
 
 const mapStateToProps = state => ({
 	searchText: state.search.keyword,

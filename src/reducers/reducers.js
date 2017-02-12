@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 import initialState from '../store/initialState';
 import actionTypes from '../actions/actionTypes';
 
@@ -31,7 +29,7 @@ const search = (state = initialState.search, action) => {
 	}
 };
 
-export default combineReducers({
+export default {
 	cities,
 	search,
-});
+};

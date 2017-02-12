@@ -50,6 +50,9 @@
 		],
 		"react/no-array-index-key": "off",
 		"jsx-a11y/no-static-element-interactions": "off",
-		"react/jsx-boolean-value": "off",
-	}
+		"react/jsx-boolean-value": "off"
+	},
+	"globals": {
+        "google": true
+    }
 }

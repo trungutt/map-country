@@ -1,21 +1,66 @@
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 
-import mapReducers from './reducers';
+import reducers from './reducers';
 import actionTypes from '../actions/actionTypes';
 
-describe('reducers CRUD', () => {
-	const initialMap = {
-		countries: ['Paris', 'Versailles'],
+describe('reducers on cities CRUD', () => {
+	const initialState = {
+		cities: [
+			{
+				name: 'Paris',
+				latitude: 48.856614,
+				longitude: 2.352222,
+			},
+			{
+				name: 'Versailles',
+				latitude: 48.804865,
+				longitude: 2.120355,
+			},
+		],
 	};
 
+	const cities = reducers.cities;
+
 	it('add a city', () => {
-		const todos = mapReducers(initialMap.countries, { type: actionTypes.ADD_CITY, payload: 'Chaville' });
-		expect(todos).to.deep.equal(['Paris', 'Versailles', 'Chaville']);
+		const todos = cities(
+			initialState.cities,
+			{
+				type: actionTypes.ADD_CITY,
+				payload: {
+					name: 'Chaville',
+					latitude: 48.808026,
+					longitude: 2.192418,
+				},
+			},
+		);
+		expect(todos).to.deep.equal([
+			{
+				name: 'Paris',
+				latitude: 48.856614,
+				longitude: 2.352222,
+			},
+			{
+				name: 'Versailles',
+				latitude: 48.804865,
+				longitude: 2.120355,
+			},
+			{
+				name: 'Chaville',
+				latitude: 48.808026,
+				longitude: 2.192418,
+			},
+		]);
 	});
 
 	it('remove a city', () => {
-		const todos = mapReducers(initialMap.countries, { type: actionTypes.REMOVE_CITY, payload: 1 });
-		expect(todos).to.deep.equal(['Paris']);
+		const todos = cities(initialState.cities, { type: actionTypes.REMOVE_CITY, payload: 1 });
+		expect(todos).to.deep.equal([
+			{
+				name: 'Paris',
+				latitude: 48.856614,
+				longitude: 2.352222,
+			},
+		]);
 	});
 });

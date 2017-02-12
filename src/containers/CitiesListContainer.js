@@ -5,7 +5,7 @@ import CitesList from '../components/CitesList';
 
 
 const mapStateToProps = state => ({
-	cities: state.cities || [],
+	cities: state.cities.map(city => city.name),
 });
 
 const mapDispatchToProps = dispatch => ({

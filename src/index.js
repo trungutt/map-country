@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import createLogger from 'redux-logger';
 
 import reducers from './reducers/reducers';
@@ -10,7 +10,7 @@ import App from './App';
 
 
 const store = createStore(
-	reducers,
+	combineReducers(reducers),
 	initialState,
 	applyMiddleware(createLogger({ collapsed: true })),
 );

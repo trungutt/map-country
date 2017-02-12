@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 
 import actionTypes from '../actions/actionTypes';
 import SearchInput from '../components/SearchInput';
+import utils from '../utils';
 
 
 const performSearch = (input, dispatch) => {
@@ -19,29 +20,6 @@ const performSearch = (input, dispatch) => {
 	}
 };
 
-const addCity = (city, dispatch) => {
-	const geocoder = new google.maps.Geocoder();
-	geocoder.geocode({ address: city }, (results, status) => {
-		if (status !== google.maps.GeocoderStatus.OK) {
-			console.log('error geocode');
-		}
-		const latLng = {
-			latitude: results[0].geometry.location.lat(),
-			longitude: results[0].geometry.location.lng(),
-		};
-
-		dispatch({
-			type: actionTypes.ADD_CITY,
-			payload: {
-				name: city,
-				...latLng,
-			},
-		});
-		dispatch({ type: actionTypes.SET_KEYWORD, payload: '' });
-	});
-};
-
-
 const mapStateToProps = state => ({
 	searchText: state.search.keyword,
 	dataSource: state.search.suggests,
@@ -51,8 +29,8 @@ const mapDispatchToProps = dispatch => ({
 	onUpdateInput: (input) => {
 		performSearch(input, dispatch);
 	},
-	onNewRequest: (chosenRequest) => {
-		addCity(chosenRequest, dispatch);
+	onNewRequest: (city) => {
+		dispatch({ type: 'FETCH_CITY', payload: utils.getGeocodeByAddress(city) });
 	},
 });
 

@@ -26,7 +26,7 @@ describe('reducers on cities CRUD', () => {
 		const expectedCities = cities(
 			initialState.cities,
 			{
-				type: actionTypes.ADD_CITY,
+				type: actionTypes.FETCH_CITY_FULFILLED,
 				payload: {
 					name: 'Chaville',
 					latitude: 48.808026,

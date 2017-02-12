@@ -11,7 +11,7 @@ type Search = {
 	error: bool
 }
 type SuggestsSuccessAction = {
-	type: typeof actionTypes.SUCCESS_SUGGESTS,
+	type: typeof actionTypes.FETCH_CITIES_FULFILLED,
 	payload: Array<string>
 };
 type SetKeywordAction = {
@@ -22,7 +22,7 @@ type SearchAction = SuggestsSuccessAction | SetKeywordAction;
 
 const search = (state: Search = initialState.search, action: SearchAction): Search => {
 	switch (action.type) {
-		case actionTypes.SUCCESS_SUGGESTS:
+		case actionTypes.FETCH_CITIES_FULFILLED:
 			return { ...state, suggests: action.payload };
 		case actionTypes.SET_KEYWORD:
 			return { ...state, keyword: action.payload };

@@ -20,7 +20,7 @@ describe('reducers on search', () => {
 		const expectedSearch = search(
 			initialState.search,
 			{
-				type: actionTypes.SUCCESS_SUGGESTS,
+				type: actionTypes.FETCH_CITIES_FULFILLED,
 				payload: [
 					'Chaville, Haut de Seine',
 					'Viroflay, France',

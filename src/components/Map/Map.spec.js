@@ -1,6 +1,6 @@
 /* @flow */
 
-/* import React from 'react';
+ import React from 'react';
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
@@ -44,4 +44,4 @@ describe('test CitiesList Component', () => {
 		const wrapper = setup();
 		expect(wrapper.find('Map').length).to.equal(1);
 	});
-}); */
+});

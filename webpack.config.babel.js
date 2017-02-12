@@ -44,9 +44,6 @@ const fontLoader = {
 const plugins = [new webpack.HotModuleReplacementPlugin()];
 const resolve = {
 	extensions: ['.js', '.jsx', '.css'],
-	alias: {
-		leaflet_css: path.join(__dirname, './node_modules/leaflet/dist/leaflet.css'),
-	},
 };
 
 export default {

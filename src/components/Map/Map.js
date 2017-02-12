@@ -4,7 +4,7 @@ import React from 'react';
 import { Map, TileLayer } from 'react-leaflet';
 
 // $FlowFixMe
-import 'leaflet_css'; // eslint-disable-line
+import '../../../node_modules/leaflet/dist/leaflet.css'; // eslint-disable-line
 
 
 // eslint-enable

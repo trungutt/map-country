@@ -1,4 +1,8 @@
-const getPlacePredictions = (input) => {
+/* @flow */
+
+declare var google: Object;
+
+const getPlacePredictions = (input: string) => {
 	const autocompleteService = new google.maps.places.AutocompleteService();
 	const ok = google.maps.places.PlacesServiceStatus.OK;
 

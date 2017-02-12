@@ -1,4 +1,8 @@
-const getGeocodeByAddress = (address) => {
+/* @flow */
+
+declare var google: Object;
+
+const getGeocodeByAddress = (address: string) => {
 	const geocoder = new google.maps.Geocoder();
 	const ok = google.maps.GeocoderStatus.OK;
 

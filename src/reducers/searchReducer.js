@@ -8,7 +8,7 @@ type Search = {
 	keyword: string,
 	suggests: Array<string>,
 	fetching: boolean,
-	error: bool
+	error: boolean,
 }
 type SuggestsSuccessAction = {
 	type: typeof actionTypes.FETCH_CITIES_FULFILLED,

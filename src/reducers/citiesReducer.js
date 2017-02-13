@@ -24,10 +24,13 @@ type CityAction = AddCityAction | RemoveCityAction;
 const cities = (state: Cities = initialState.cities, action: CityAction): Cities => {
 	switch (action.type) {
 		case actionTypes.ADD_CITY_FULFILLED:
+			if (state.some(city => city.name === action.payload.name)) return state;
 			return [
 				...state,
 				action.payload,
 			];
+		case actionTypes.ADD_CITY_REJECTED:
+			return state;
 		case actionTypes.REMOVE_CITY:
 			return [
 				...state.slice(0, action.payload),

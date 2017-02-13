@@ -7,13 +7,17 @@ const getPlacePredictions = (input: string) => {
 	const ok = google.maps.places.PlacesServiceStatus.OK;
 
 	return new Promise((resolve, reject) => {
-		autocompleteService.getPlacePredictions({ input }, (predictions, status) => {
-			if (status !== ok) {
-				reject(status);
-			} else {
-				resolve(predictions.map(prediction => prediction.description));
-			}
-		});
+		if (!input) {
+			reject('Input is empty');
+		} else {
+			autocompleteService.getPlacePredictions({ input }, (predictions, status) => {
+				if (status !== ok) {
+					reject(status);
+				} else {
+					resolve(predictions.map(prediction => prediction.description));
+				}
+			});
+		}
 	});
 };
 

@@ -17,6 +17,7 @@ In this project I use:
 * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) please watch [Dan Abramov about Time Travel at React-Europe](https://www.youtube.com/watch?v=xsSnOQynTHs)
 * [style-loader](https://github.com/webpack/style-loader), [css-loader](https://github.com/webpack-contrib/css-loader)
 * [styled-components](https://styled-components.com/) for writting actual CSS code to style your components, same author as [CSS-Modules](https://github.com/css-modules/css-modules)
+* [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes)
 * [Mocha](https://mochajs.org/) / [Chai](http://chaijs.com/) Test framework / Assertion Library
 * [Enzyme](http://airbnb.io/enzyme/) Testing utilities for React from Airbnb, a wrapper of [React Addons Test Utils](https://facebook.github.io/react/docs/test-utils.html)
 * [Jsdom](https://github.com/tmpvar/jsdom) A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js
